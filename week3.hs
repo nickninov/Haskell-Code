@@ -1,5 +1,3 @@
-import Data.Char
-
 -- 1. Using library functions, 
 -- define a function halves :: [s] -> ([a], [a])
 -- that splits an even-lengthed list into two halves, e.g.:
