@@ -40,3 +40,34 @@ safeTail as
 -- the sum 1^2 + 2^2 + ... 100^2 of the first one hundred integer squares.
 
 -- [x ^ 2 | x <- [1..100]]
+
+-- 6. Write a Caesar Cipher program:
+    -- The Caesar Cipher technique is one of the earliest and simplest method of
+    -- encryption technique. It’s simply a type of substitution cipher, 
+    -- i.e., each letter of a given text is replaced by a letter some fixed number
+    -- of positions down the alphabet. For example, with a shift of 1, 
+    -- A would be replaced by B, B would become C, and so on. 
+    -- Thus, to cipher a given text we need an integer value, 
+    -- known as shift which indicates the number of position each letter 
+    -- of the text has been moved down. The encryption can be represented using 
+    -- modular arithmetic by first transforming the letters into numbers, 
+    -- according to the scheme, A = 0, B = 1,…, Z = 25.
+
+cipher :: String -> String
+cipher xs = do
+    -- Forming the grammar [(' ', 0) ..]
+    let alphabet = " 1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
+    let alphabetLength = [1..length alphabet]
+    let grammar = zip alphabet alphabetLength
+
+    -- Forming the grammar [(' ', 0) ..]
+    let cipherAlphabet = "  1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
+    let cipherAlphabetLength = [1..length alphabet]
+    let cipherGrammar = zip cipherAlphabet cipherAlphabetLength
+
+    -- Current word format
+    let word = [(y, snd x) | y <- xs, x <- grammar, y == fst x]
+    
+    let cipheredWord = [(fst y, snd y) | x <- word, y <- cipherGrammar, snd x == snd y]
+    
+    [fst x | x <- cipheredWord]
