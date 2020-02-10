@@ -55,12 +55,12 @@ safeTail as
 
 cipher :: String -> String
 cipher xs = do
-    -- Forming the grammar [(' ', 0) ..]
+    -- Forming the grammar [(Char, Int)]
     let alphabet = " 1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
     let alphabetLength = [1..length alphabet]
     let grammar = zip alphabet alphabetLength
 
-    -- Forming the grammar [(' ', 0) ..]
+    -- Forming the grammar [(Char, Int)]
     let cipherAlphabet = "  1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
     let cipherAlphabetLength = [1..length alphabet]
     let cipherGrammar = zip cipherAlphabet cipherAlphabetLength
@@ -68,6 +68,8 @@ cipher xs = do
     -- Current word format
     let word = [(y, snd x) | y <- xs, x <- grammar, y == fst x]
     
+    -- Ciphered word format in [(Char, Int)]
     let cipheredWord = [(fst y, snd y) | x <- word, y <- cipherGrammar, snd x == snd y]
     
+    -- Display only the characters
     [fst x | x <- cipheredWord]
