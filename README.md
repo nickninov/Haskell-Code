@@ -7,5 +7,5 @@ Haskell coding during my second year at university.
 ### Lists
 
 Select the first element of a non-empty list:
-  `head [1, 2, 3, 4, 5]`
+  `head [1, 2, 3, 4, 5]`<br>
    1
