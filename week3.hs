@@ -56,7 +56,7 @@ safeTail as
 cipher :: String -> String
 cipher xs = do
     -- Forming the grammar [(Char, Int)]
-    let alphabet = " 1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
+    let alphabet = " 1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;:"
     let alphabetLength = [1..length alphabet]
     let grammar = zip alphabet alphabetLength
 
