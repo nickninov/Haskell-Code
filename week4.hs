@@ -50,15 +50,14 @@ getTime time
 -- otherwise print the number. 
 -- (Review examples in week 1 for print output.)
 
--- funkyFunc :: (Integral a, Show a) => a -> [Char]
+funkyFunc :: (Integral a, Show a) => a -> [Char]
 funkyFunc num 
     | num >= 1 && num <= 100 = showText num
     | otherwise = "Number not between 1 and 100"
 
-
+showText :: (Integral a, Show a) => a -> [Char]
 showText num
     | mod num 3 == 0 && mod num 5 == 0 = "foobar"
     | mod num 3 == 0 = "foo"
     | mod num 5 == 0 = "bar"
     | otherwise = show num
-
