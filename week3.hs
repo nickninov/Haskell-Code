@@ -1,3 +1,4 @@
+import Data.Char
 -- 1. Using library functions, 
 -- define a function halves :: [s] -> ([a], [a])
 -- that splits an even-lengthed list into two halves, e.g.:
@@ -7,7 +8,6 @@
 
 halves :: [a] -> ([a], [a])
 halves as = splitAt (length as `div` 2) as
-
 
 -- 2. Consider a function safetail :: [a] -> [a] 
 -- that behaves as the library function tail, 
@@ -53,23 +53,20 @@ safeTail as
     -- modular arithmetic by first transforming the letters into numbers, 
     -- according to the scheme, A = 0, B = 1,…, Z = 25.
 
-cipher :: String -> String
-cipher xs = do
-    -- Forming the grammar [(Char, Int)]
-    let alphabet = " 1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;:"
-    let alphabetLength = [1..length alphabet]
-    let grammar = zip alphabet alphabetLength
+-- Convert a lowercase letter corresponding to a value from 0 to 25
+charToInt :: Char -> Int
+charToInt c = ord c - ord 'a'
 
-    -- Forming the grammar [(Char, Int)]
-    let cipherAlphabet = "  1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@£$%^&*()_+,./;: "
-    let cipherAlphabetLength = [1..length alphabet]
-    let cipherGrammar = zip cipherAlphabet cipherAlphabetLength
+-- Conver a value from 0 to 25 to the corresponding lowercase letter
+intToChar :: Int -> Char
+intToChar n = chr (ord 'a' + n)
 
-    -- Current word format
-    let word = [(y, snd x) | y <- xs, x <- grammar, y == fst x]
-    
-    -- Ciphered word format in [(Char, Int)]
-    let cipheredWord = [(fst y, snd y) | x <- word, y <- cipherGrammar, snd x == snd y]
-    
-    -- Display only the characters
-    [fst x | x <- cipheredWord]
+-- Shift a letter for n amount of positions
+shift :: Int -> Char -> Char
+shift n c 
+    | isLower c = intToChar ((charToInt c + n) `mod` 26)
+    | otherwise = c
+
+-- Cipher function
+cipher :: Int -> String -> String 
+cipher n xs = [shift n x | x <- xs]
