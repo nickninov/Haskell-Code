@@ -95,8 +95,43 @@
 <br>
 <br>
 <br>
+**Decide if all elements of a list satisfy a predicate:**
+<br>`all even [1..10]`
+<br>False
+<br>
+<br>
+<br>`all even [2, 4..10]`
+<br>True
+<br>
+<br>
+**Decide if any element of a list satisfied a predicate:**
+<br>`any even [1..10]`
+<br>True
+<br>
+<br>
+<br>
+<br>
+**Select elements from a list while they satisfy a predicate:**
+<br>`take even [2, 4..20]`
+<br>[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+<br>
+<br>
+<br>
+<br>
+<br>`takeWhile even [2, 4, 6, 7, 8]`
+<br>[2, 4, 6]
+<br>
+<br>
+<br>
+<br>
+**Remove elements from a list while they satisfy a predicate:**
+<br>`dropWhile odd [1, 3, 5, 6, 7]`
+<br>[6, 7]
+<br>
+<br>
+<br>
+<br>
 # Types
-
 `min 1 10`
 <br>1
 <br>
