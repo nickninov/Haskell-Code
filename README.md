@@ -104,7 +104,6 @@
 <br>True
 <br>
 <br>
-**Decide if any element of a list satisfied a predicate:**
 <br>`any even [1..10]`
 <br>True
 <br>
