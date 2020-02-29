@@ -182,8 +182,8 @@
 <br>
 <br>
 **Return a constant function.**
-<br>*A constant function is a function whose (output) value is the same for every input value. For example, the function y(x)=4 is a constant function because the value of  y(x) is 4 regardless of the input value x.<br>
-const :: a -> b -> a*
+<br>*A constant function is a function whose (output) value is the same for every input value. For example, the function y(x)=4 is a constant function because the value of  y(x) is 4 regardless of the input value x.<br>*
+**const :: a -> b -> a**
 <br>`const 1 20`
 <br>1
 <br>
