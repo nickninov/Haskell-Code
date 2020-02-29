@@ -79,6 +79,22 @@
 <br>
 <br>
 <br>
+**Returns the list of all the values of the passed function and the passed list:**
+<br>**map :: (a -> b) -> [a] -> [b]**
+<br>`map even [1..10]]`
+<br>[False,True,False,True,False,True,False,True,False,True]
+<br>
+<br>
+<br>
+<br>
+**Returns the passed list of all the values such that the elements of the list are True to the passed function:**
+<br>**filter :: (a -> Bool) -> [a] -> [a]**
+<br>`filter even [1..10]`
+<br>[2, 4, 6, 8, 10]
+<br>
+<br>
+<br>
+<br>
 # Types
 
 `min 1 10`
