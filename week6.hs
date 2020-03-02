@@ -1,5 +1,4 @@
 import Data.Char
-import Data.List
 
 -- 1. Implement the following functions. You can use the library function map:
 
