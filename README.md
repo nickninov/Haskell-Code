@@ -1,4 +1,5 @@
 # Haskell Cheat Sheet
+University of West London Functional Programming seminar exercises
 
 # Lists
 
