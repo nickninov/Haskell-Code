@@ -83,7 +83,7 @@ University of West London Functional Programming seminar exercises
 **Returns the list of all the values of the passed function and the passed list:**
 <br>**map :: (a -> b) -> [a] -> [b]**
 <br>`map even [1..10]]`
-<br>[False,True,False,True,False,True,False,True,False,True]
+<br>[False, True, False, True, False, True, False, True, False, True]
 <br>
 <br>
 <br>
