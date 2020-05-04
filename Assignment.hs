@@ -26,29 +26,19 @@ Exercise 2:
     according to the scheme, A = 0, B = 1,…, Z = 25.
 -}
 
--- Returns the alphabet and the letter's number
-alphabet :: [(Char, Int)]
-alphabet = do
-    let alphabet = ['a'..'z']
-    zip alphabet [0..length alphabet]
+charToInt :: Char -> Int
+charToInt c = ord c - ord 'a'
 
--- Only lower case letters are encoded
--- Convert a character to its corresponding Int
-letterToNumber :: Char -> Int
-letterToNumber 'z' = -1
-letterToNumber c = head[ b | (a,b) <- alphabet, a==c]
+intToChar :: Int -> Char
+intToChar n = chr (ord 'a' + n)
 
--- Convert a number to its corresponding character
-numberToLetter :: Int -> Char
-numberToLetter n = head[ a | (a,b) <- alphabet, b==n]
-
--- Shifts a character (c) for a given amount of positions (n)
 shift :: Int -> Char -> Char
-shift n c  = numberToLetter ((letterToNumber c + n))
+shift n c 
+    | isLower c = intToChar ((charToInt c + n) `mod` 26)
+    | otherwise = c
 
--- Shifts an entire word rather than just a single character
-cipher :: Int -> String -> String
-cipher n xs = [shift n x | x <- xs]
+cipher :: Int -> String -> String 
+cipher n xs = map (\x-> shift n x) xs
 
 {-
 Exercise 3:
