@@ -171,6 +171,10 @@ fib n = fib (n-1) + fib (n-2)
         otherwise the function will execute until it reaches a stack overflow. 
         Recursion is not restricted to numbers, but can also be used to define functions on lists. 
 
+        rev :: [a] -> [a]  
+        rev [] = []  
+        rev (x:xs) = rev xs ++ [x]  
+
         Curried function - only takes one parameter at a time. 
         When you break downbreak down a function that takes multiple arguments 
         into a series of functions that each take only one argument.
