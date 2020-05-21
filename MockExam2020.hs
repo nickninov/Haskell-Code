@@ -60,7 +60,7 @@
 --      c. Function application brackets to the left
 --      d. All type errors are detected at compile time
 
--- Answer:  d. All type errors are detected at compile time
+-- Answer:  b. All functions are guaranteed to terminate
 
 -- f) The expression Node (Node Leaf Leaf) Leaf is a value of the type:
 --      a. data Tree = Node | Leaf
